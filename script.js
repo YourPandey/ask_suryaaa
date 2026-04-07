@@ -1,9 +1,9 @@
 function startExperience() {
     let video = document.getElementById("bg-video");
     
-    // This is the magic! It unmutes the video and plays the song when he clicks "Open ❤️"
+    // Unmute and play the background video (Apna Bana Le)
     video.muted = false;
-    video.volume = 0.8; // Sets the song volume to 80%
+    video.volume = 0.8; 
     video.play().catch(error => console.log("Video play failed:", error));
     
     showPage('page1');
@@ -22,9 +22,10 @@ function showPage(pageId) {
 
     if (pageId === 'yes-page') {
         let crackers = document.getElementById("cracker-sound");
-        crackers.volume = 1.0;
-        crackers.play().catch(error => console.log("Cracker sound failed:", error));
-        
+        if(crackers) {
+            crackers.volume = 1.0;
+            crackers.play().catch(error => console.log("Cracker sound failed:", error));
+        }
         startCrazyConfetti();
     }
 }
